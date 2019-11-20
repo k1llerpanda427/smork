@@ -1,0 +1,41 @@
+#defining a function
+def sentenceCase(string):
+    #creating a new list for the ending punctuation
+    endingPunctuation = []
+    #for loop for the argument string for appending whatever they sentence ends with
+    for i in range(len(string)):
+        if string[i] == '.':
+            endingPunctuation.append('.')
+        elif string[i] == '.':
+            endingPunctuation.append('?')
+        elif string[i] == '.':
+            endingPunctuation.append('!')
+
+    string = string.replace('?', '.').replace('!', '.')
+    userSentences = string.split('.')
+
+    while '' in userSentences:
+        userSentences.remove('')
+        
+
+    
+    ind = []
+    for i in range(len(userSentences)):
+        userSentences[i] = userSentences[i].lstrip(' ')
+        userSentences[i] = userSentences[i][0].upper() + userSentences [i][1:]
+
+    newSentence = ''
+    for i in range(len(userSentences)):
+        newSentence += userSentences[i]
+        newSentence += endingPunctuation[i] + ' '
+    newSentence = newSentence[:-1]
+
+    return newSentence
+    return userSentences
+
+userString = input('Enter something in all lowercase:  ')
+
+print('Your new sentence is: ')
+print(sentenceCase(userString))
+            
+        
